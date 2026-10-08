@@ -15,7 +15,8 @@ const app = express();
 
 // Security Helmet middleware
 app.use(helmet({
-  crossOriginResourcePolicy: { policy: "cross-origin" }
+  crossOriginResourcePolicy: { policy: "cross-origin" },
+  contentSecurityPolicy: false,
 }));
 
 // CORS setup
