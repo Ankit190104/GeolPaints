@@ -10,7 +10,8 @@ try {
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/goel_paints');
+    const atlasUri = 'mongodb+srv://ankitk1907777_db_user:JMIuZ5IhzLLFRMUE@cluster0.pnoktxz.mongodb.net/goel_paints?retryWrites=true&w=majority&appName=Cluster0';
+    const conn = await mongoose.connect(process.env.MONGODB_URI || atlasUri);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(`Error connecting to MongoDB: ${error.message}`);
