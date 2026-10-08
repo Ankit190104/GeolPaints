@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: goel-paints-and-hardware
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        value: mongodb+srv://ankitk1907777_db_user:JMIuZ5IhzLLFRMUE@cluster0.pnoktxz.mongodb.net/goel_paints?retryWrites=true&w=majority&appName=Cluster0
+      - key: JWT_SECRET
+        value: goel_paints_super_secret_jwt_key_2026_mohali
