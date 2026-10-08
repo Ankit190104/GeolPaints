@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 overflow-x-hidden;
+  }
+}
+
+.font-pa {
+  font-family: 'Noto Sans Gurmukhi', 'Poppins', sans-serif;
+}
+
+/* Custom soft shadow */
+.shadow-soft {
+  box-shadow: 0 10px 30px -5px rgba(10, 37, 64, 0.08);
+}
