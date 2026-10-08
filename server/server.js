@@ -37,12 +37,23 @@ app.get('/', (req, res) => {
   });
 });
 
+const path = require('path');
+
 // API Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/shades', require('./routes/shadeRoutes'));
 app.use('/api/reviews', require('./routes/reviewRoutes'));
 app.use('/api/enquiries', require('./routes/enquiryRoutes'));
+
+// Production Static Assets Serving
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/dist')));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api')) return next();
+    res.sendFile(path.resolve(__dirname, '../client', 'dist', 'index.html'));
+  });
+}
 
 // Error Middleware
 app.use(notFound);
